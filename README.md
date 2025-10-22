@@ -20,11 +20,42 @@ Predicting for: ./tea/organized/users/ffeda274-4646-4906-bef4-805ce29904d9.jpg
 ---------------------------------
 ```
 
+
+
+
 First image is goblino de las americas
 
 Second image is less goblino
 
 For obvious reason I can't release image, all you need to know is that it's trained on embeddings on those images, with extra score elo score based on teaspill.fun votes.
+
+
+
+Second test : 
+
+
+```text
+PS G:\teappdump> python.exe .\predict_elo.py .\madison_beer.jpg
+Loading embedding model : hf-hub:timm/PE-Core-bigG-14-448...
+
+Predicting for: .\madison_beer.jpg
+
+---------------------------------
+   ELO Score predicted : 826.28
+---------------------------------
+PS G:\teappdump> python.exe .\predict_elo.py '.\leslie_jones_(black girl from ghost busters).jpg'
+Loading embedding model : hf-hub:timm/PE-Core-bigG-14-448...
+
+Predicting for: .\leslie_jones_(black girl from ghost busters).jpg
+
+---------------------------------
+   ELO Score predicted : 359.22
+---------------------------------
+```
+
+
+First image is madison beer, second is well uh ...
+
 
 
 
