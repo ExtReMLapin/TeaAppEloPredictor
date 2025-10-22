@@ -1,3 +1,5 @@
+Model that returns a elo score from 0 to 1000 based on embeddings generated out of faces
+
 # How to run ? 
 
 
