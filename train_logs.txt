@@ -1,0 +1,21 @@
+Epoch 269/500 [Train]: 100%|████████████████████████████████████████████████| 1/1 [00:01<00:00,  1.33s/it, loss=0.5717]
+Epoch 269: Train Loss = 0.5717, Val Loss = 0.8149, LR = 0.000000
+Epoch 270/500 [Train]: 100%|████████████████████████████████████████████████| 1/1 [00:01<00:00,  1.32s/it, loss=0.5668]
+Epoch 270: Train Loss = 0.5668, Val Loss = 0.8149, LR = 0.000000
+
+Early stopping triggered after 270 epochs
+
+Training complete! Best validation loss: 0.8146
+Model saved to best_open_clip_regressor.pth
+
+=== Sample Predictions (10 random val samples) ===
+Expected score 566.57 but got 552.12
+Expected score 486.89 but got 453.96
+Expected score 337.25 but got 262.20
+Expected score 477.78 but got 577.65
+Expected score 627.26 but got 689.38
+Expected score 463.99 but got 501.67
+Expected score 521.37 but got 479.47
+Expected score 544.07 but got 489.79
+Expected score 327.17 but got 328.25
+Expected score 564.28 but got 594.65
