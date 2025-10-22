@@ -1,5 +1,33 @@
 Model that returns a elo score from 0 to 1000 based on embeddings generated out of faces
 
+---
+
+## How it works
+
+
+Because finetuning the embeddings model requires quite some resources I don't have, i generated embeddings of the whole dumped dataset (took ~1.5 hour on a RTX 3080)
+
+Then i was able to run in few minutes a regressor hat fits the whole dataset in gpu per epoch 
+
+`[[image 1 embeddings], [image2 embeddings] ....] -> [image 1 elo, image 2 elo]`
+
+Took only few minutes
+
+Considering the data bias and the data loss post embeddings, i'm pretty happy with the results
+
+
+
+```mermaid
+graph TD
+    A["🖼️<br>Input Image<br>(face.jpg)"] --> B["Step 1: Embedding Model<br>PE-Core-bigG-14-448"]
+    B --> C["📊<br>Embedding Vector<br>[0.1, 0.9, ..., 0.4]<br>(Dimension: 1280)"]
+    C --> D["Step 2: Regressor<br>EmbeddingRegressor MLP"]
+    D --> E["📈<br>Predicted ELO Score<br>(e.g., 1450.7)"]
+
+```
+
+
+
 # How to run ? 
 
 
@@ -88,28 +116,3 @@ Dataset bias : it is what it is
 
 Dataset source : the db dump (with images) + asked the guy owning teaspill.fun the votes DB
 
----
-
-## How it works
-
-
-Because finetuning the embeddings model requires quite some resources I don't have, i generated embeddings of the whole dumped dataset (took ~1.5 hour on a RTX 3080)
-
-Then i was able to run in few minutes a regressor hat fits the whole dataset in gpu per epoch 
-
-`[[image 1 embeddings], [image2 embeddings] ....] -> [image 1 elo, image 2 elo]`
-
-Took only few minutes
-
-Considering the data bias and the data loss post embeddings, i'm pretty happy with the results
-
-
-
-```mermaid
-graph TD
-    A["🖼️<br>Input Image<br>(face.jpg)"] --> B["Step 1: Embedding Model<br>PE-Core-bigG-14-448"]
-    B --> C["📊<br>Embedding Vector<br>[0.1, 0.9, ..., 0.4]<br>(Dimension: 1280)"]
-    C --> D["Step 2: Regressor<br>EmbeddingRegressor MLP"]
-    D --> E["📈<br>Predicted ELO Score<br>(e.g., 1450.7)"]
-
-```
