@@ -88,11 +88,20 @@ Dataset source : the db dump (with images) + asked the guy owning teaspill.fun t
 
 ---
 
-## Fonctionnement
+## How it works
 
-Le modèle ne regarde pas l'image directement pendant l'entraînement. À la place, on pré-traite d'abord toutes les images en **"embeddings"** (un vecteur de 1280 chiffres) en utilisant un modèle de vision pré-entraîné très puissant (`PE-Core-bigG-14-448`).
 
-Ensuite, un modèle beaucoup plus petit et rapide (le **"Régresseur"**) est entraîné pour prédire le score ELO uniquement à partir de cet embedding.
+Because finetuning the embeddings model requires quite some resources I don't have, i generated embeddings of the whole dumped dataset (took ~1.5 hour on a RTX 3080)
+
+Then i was able to run in few minutes a regressor hat fits the whole dataset in gpu per epoch 
+
+`[[image 1 embeddings], [image2 embeddings] ....] -> [image 1 elo, image 2 elo]`
+
+Took only few minutes
+
+Considering the data bias and the data loss post embeddings, i'm pretty happy with the results
+
+
 
 ```mermaid
 graph TD
