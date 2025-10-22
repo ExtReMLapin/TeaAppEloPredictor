@@ -1,4 +1,35 @@
+# How to run ? 
 
+
+```text
+PS G:\teappdump> python.exe .\predict_elo.py ./tea/organized/users/00ea9964-a415-44be-bd74-fdd55034efc3.jpg
+Loading embedding model : hf-hub:timm/PE-Core-bigG-14-448...
+
+Predicting for: ./tea/organized/users/00ea9964-a415-44be-bd74-fdd55034efc3.jpg
+
+---------------------------------
+   ELO Score predicted : 368.82
+---------------------------------
+PS G:\teappdump> python.exe .\predict_elo.py ./tea/organized/users/ffeda274-4646-4906-bef4-805ce29904d9.jpg
+Loading embedding model : hf-hub:timm/PE-Core-bigG-14-448...
+
+Predicting for: ./tea/organized/users/ffeda274-4646-4906-bef4-805ce29904d9.jpg
+
+---------------------------------
+   ELO Score predicted : 637.13
+---------------------------------
+```
+
+First image is goblino de las americas
+
+Second image is less goblino
+
+For obvious reason I can't release image, all you need to know is that it's trained on embeddings on those images, with extra score elo score based on teaspill.fun votes.
+
+
+
+
+------------
 
 Dataset bias : it is what it is
 
